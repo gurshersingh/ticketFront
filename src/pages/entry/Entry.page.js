@@ -4,12 +4,13 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import { Login } from '../../components/login/Login.component'
 import { useState } from 'react'
 import { ResetPassword } from '../../components/password-reset/PasswordRest.component'
+import { DefaultLayout } from '../../layout/DefaultLayout'
 
 
 export const Entry = () => {
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
-    const [frmLoad, setfrmLoad] = useState('rest')
+    const [frmLoad, setfrmLoad] = useState('login')
     
     const formswitch = (formtype) =>{
         setfrmLoad(formtype)
@@ -27,6 +28,7 @@ export const Entry = () => {
     return (
         <div className="entry-page bg-info">
         <Jumbotron className="form-box">
+        
         {frmLoad==='login' && (<Login 
             handleOnChange={handleOnChange}
             handleSubmit={handleSubmit}
