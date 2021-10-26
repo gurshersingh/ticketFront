@@ -13,7 +13,7 @@ export const TicketTable = ({tickets}) => {
                 </tr>
             </thead>
             <tbody >
-            {tickets.length>5 ? tickets.map(row=> 
+            {tickets.length>0 ? tickets.map(row=> 
                 <tr key={row.id}>
                     <td>{row.id}</td>
                     <td>{row.subject}</td>
