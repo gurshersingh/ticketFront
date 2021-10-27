@@ -4,7 +4,25 @@
         "id":1,
         "subject":"SSAL issue",
         "status": "Pending",
-        "date":"2020-12-01"
+        "date":"2020-12-01",
+        "history":[
+            {
+            "date":"12-10-2021",
+            "message":"Kida",
+            "messageBy":"client"
+            },
+            {
+                "date":"12-10-2021",
+                "message":"all set",
+                "messageBy":"operator"
+            },
+            {
+                "date":"12-10-2021",
+                "message":"tu suna",
+                "messageBy":"client"
+            }
+            
+        ]
     },
     {
         "id":2,

@@ -6,6 +6,7 @@ import { AddTicket } from './pages/add-ticket/AddTicket.page';
 import { Dashboard } from './pages/dashboard/Dashboard.page';
 //import{Button} from 'react-bootstrap'
 import { Entry } from './pages/entry/Entry.page';
+import { Ticket } from './pages/ticket/Ticket.page';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <DefaultLayout>
        {/*<Dashboard/>*/}
        {/*<AddTicket/>*/}
-       <TicketListing/>
+       {/*<TicketListing/>*/}
+       <Ticket/>
       </DefaultLayout>
      
     </div>
