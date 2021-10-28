@@ -1,9 +1,10 @@
 import React, {useState, useEffect}from 'react'
-import {Container, Row, Col, Form, Button} from 'react-bootstrap'
+import {Container, Row, Col,  Button} from 'react-bootstrap'
 import { BreadCrum } from '../../components/login/bread-crum/BreadCrum.comp'
 import { SearchForm } from '../../components/search-form/SearchForm.comp'
 import { TicketTable } from '../../components/ticket-table/Ticket-table.comp'
 import tickets from './../../assets/data/dummy.json'
+import { Link } from "react-router-dom";
 
 export const TicketListing = () => {
     const [str, setstr] = useState("")
@@ -30,7 +31,9 @@ export const TicketListing = () => {
             </Row>
             <Row className="mt-4">
                 <Col>
+                <Link to ="/addticket">
                 <Button variant="info">Add Ticket</Button>
+                </Link>
                 </Col>
                 <Col className="text-right">
                     <SearchForm

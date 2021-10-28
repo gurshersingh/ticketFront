@@ -28,7 +28,25 @@
         "id":2,
         "subject":"SSALp issue",
         "status": "Open",
-        "date":"2020-12-01"
+        "date":"2020-12-01",
+        "history":[
+            {
+            "date":"12-10-2021",
+            "message":"hello",
+            "messageBy":"client"
+            },
+            {
+                "date":"12-10-2021",
+                "message":"bro",
+                "messageBy":"operator"
+            },
+            {
+                "date":"12-10-2021",
+                "message":"watsupp",
+                "messageBy":"client"
+            }
+            
+        ]
     },
     {
         "id":3,

@@ -4,7 +4,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import { Login } from '../../components/login/Login.component'
 import { useState } from 'react'
 import { ResetPassword } from '../../components/password-reset/PasswordRest.component'
-import { DefaultLayout } from '../../layout/DefaultLayout'
+
 
 
 export const Entry = () => {

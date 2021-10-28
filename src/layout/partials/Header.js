@@ -1,27 +1,35 @@
-import React from 'react'
-import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
+import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
+//import logo from "../../assets/img/logo.png";
+import { useHistory } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
+
+
 export const Header = () => {
-    return (
-        
-        <Navbar collapseOnSelect
-        variant="dark"
-        bg="info" 
-        expand="md"
-        >
-        <Navbar.Brand href="#home">CRM</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Link href="#home">Dasboard</Nav.Link>
-            <Nav.Link href="#home">Tickets</Nav.Link>
-            <Nav.Link href="#link">Logout</Nav.Link>
-          </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Navbar>
-        
-    )
-}
+  const history = useHistory();
+
+  const logOut=()=>{
+    history.push('/')
+  }
+
+  return (
+    <Navbar collapseOnSelect bg="info" variant="dark" expand="md">
+      <Navbar.Brand>
+        CRM
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <LinkContainer to="/dashboard">
+            <Nav.Link>Dashboard</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/tickets">
+            <Nav.Link>Tickets</Nav.Link>
+          </LinkContainer>
+
+          <Nav.Link onClick={logOut}>Logout</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+};

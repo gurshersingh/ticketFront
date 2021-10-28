@@ -4,14 +4,26 @@ import { BreadCrum } from '../../components/login/bread-crum/BreadCrum.comp'
 import { MessageHistory } from '../../components/message-history/MessageHistory.comp'
 import { UpdateTicket } from '../../components/update-ticket/UpdateTicket.comp'
 import tickets from './../../assets/data/dummy.json'
-
+import { useParams } from "react-router-dom"
 
 export const Ticket = () => {
-    const ticket=tickets[0]
+    
+    const {id} = useParams();
+    //console.log(id);
+   //const ticket=tickets[id-1]
+   // console.log(ticket);
     const [textMsg, settextMsg] = useState("")
+    const [loadtic, setloadtic] = useState("")
     useEffect(() => {
-        
-    }, [textMsg])
+        for (let i = 0; i < tickets.length; i++) {
+            if(id== tickets[i].id)
+            {
+                setloadtic(tickets[i])
+                continue
+            }
+            
+        }
+    }, [textMsg],[id])
 
     const handleOnChange=(e)=>{
         settextMsg(e.target.value)
@@ -22,6 +34,7 @@ export const Ticket = () => {
         alert('form submitted')
     }
     return (
+        
         <Container>
             <Row>
                 <Col>
@@ -29,10 +42,11 @@ export const Ticket = () => {
                 </Col>
             </Row>
             <Row>
-                <Col className="font-weight-bolder text-secondary">
-                <div className="subject">Subject : {ticket.subject}</div>
-                <div className="date">Date : {ticket.date}</div>
-                <div className="status">Status : {ticket.status}</div>
+            <Col className="font-weight-bolder text-secondary">
+                
+                <div className="subject">Subject : {loadtic.subject}</div>
+                <div className="date">Date : {loadtic.date}</div>
+                <div className="status">Status : {loadtic.status}</div>
                 </Col>
                 <Col className="text-right">
                 <Button variant="outline-info">Close Ticket</Button>
@@ -40,7 +54,7 @@ export const Ticket = () => {
             </Row>
             <Row className="mt-3">
                 <Col>
-                <MessageHistory msg={ticket.history}/>
+                <MessageHistory msg={loadtic.history}/>
                 <UpdateTicket 
                 textMsg={textMsg}
                 handleOnChange={handleOnChange}
