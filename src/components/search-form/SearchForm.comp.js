@@ -1,8 +1,14 @@
 import React from 'react'
 import { Row, Col, Form} from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import {filterSearchStr} from '../../pages/ticket-listing/ticketAction'
 
-export const SearchForm = ({handleOnChange, str}) => {
-    console.log(str)
+export const SearchForm = () => {
+        const dispatch=useDispatch()
+        const handleOnChange = e =>{
+        const {value} = e.target
+        dispatch(filterSearchStr(value))
+    }
     return (
         <Form>
             <Form.Group as ={Row}>
@@ -12,7 +18,7 @@ export const SearchForm = ({handleOnChange, str}) => {
                     name="searchStr"
                     placeholder="Search Here"
                     onChange={handleOnChange}
-                    value={str}
+                    
                     />
    
                 </Col>

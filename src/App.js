@@ -6,7 +6,8 @@ import {
 } from "react-router-dom";
 
 
-import { TicketListing } from './layout/ticket-listing/Ticket-Listing.page';
+//import { TicketListing } from './layout/ticket-listing/Ticket-Listing.page';
+import { TicketListing } from './pages/ticket-listing/Ticket-Listing.page';
 import { AddTicket } from './pages/add-ticket/AddTicket.page';
 import { Dashboard } from './pages/dashboard/Dashboard.page';
 //import{Button} from 'react-bootstrap'

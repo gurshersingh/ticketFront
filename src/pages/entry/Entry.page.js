@@ -8,39 +8,28 @@ import { ResetPassword } from '../../components/password-reset/PasswordRest.comp
 
 
 export const Entry = () => {
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
     const [frmLoad, setfrmLoad] = useState('login')
     
-    const formswitch = (formtype) =>{
-        setfrmLoad(formtype)
-    }
-    
-    const handleOnChange =(e)=>{
-    const {name, value} = e.target
-   if (name==='email'? setEmail(value):setPass(value))
-    console.log(name,value)
-    }
     const handleSubmit =(e)=>{
         e.preventDefault()
-        console.log(email)
+        //console.log(email)
+    }
+    const formswitch = (formtype) =>{
+        setfrmLoad(formtype)
     }
     return (
         <div className="entry-page bg-info">
         <Jumbotron className="form-box">
         
         {frmLoad==='login' && (<Login 
-            handleOnChange={handleOnChange}
-            handleSubmit={handleSubmit}
-            formswitch={formswitch}
-            email={email}
-            pass={pass}/>)}
+            formswitch={formswitch}/>)}
         
         {frmLoad==='rest' && (<ResetPassword 
-        handleOnChange={handleOnChange}
+        //handleOnChange={handleOnChange}
         handleSubmit={handleSubmit}
         formswitch={formswitch}
-        email={email}/>)}
+        //email={email}
+        />)}
         </Jumbotron>
             
         </div>

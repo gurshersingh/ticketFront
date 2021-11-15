@@ -6,6 +6,7 @@ import { UpdateTicket } from '../../components/update-ticket/UpdateTicket.comp'
 import tickets from './../../assets/data/dummy.json'
 import { useParams } from "react-router-dom"
 
+
 export const Ticket = () => {
     
     const {id} = useParams();
