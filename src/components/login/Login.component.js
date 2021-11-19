@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import {Container, Row, Col, Form, Button, Spinner,Alert} from 'react-bootstrap'
 import {isPending,isSuccess,isFail} from './loginSlice'
 import { useDispatch,useSelector } from 'react-redux'
@@ -10,9 +10,12 @@ import { getUserProfile } from "../../pages/dashboard/userAction"
 export const Login = ({ formswitch}) => {
     const dispatch=useDispatch()
     const history=useHistory()
-    const{isLoading,error}=useSelector(state=>state.login)
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
+    const{isLoading,isAuth,error}=useSelector(state=>state.login)
+    useEffect(() => {
+        (isAuth||sessionStorage.getItem('accessJWT')) && history.push('/dashboard')
+    }, [isAuth,history])
+    const [email, setEmail] = useState('a4@a.com')
+    const [pass, setPass] = useState('password3')
     
     const handleOnChange =(e)=>{
     const {name, value} = e.target

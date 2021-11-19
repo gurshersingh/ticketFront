@@ -3,6 +3,7 @@ import axios from "axios"
 const rootURL='http://localhost:3001/v1/user'
 const loginUrl=rootURL+'/login'
 const logoutUrl=rootURL+'/logout'
+const refreshJWTUrl = 'http://localhost:3001/v1/tokens'
 //const getUserUrl=rootURL
 
 export const userLogin = formObj=>{
@@ -53,4 +54,35 @@ export const logout = async() =>{
     } catch (error) {
         console.log(error)
     }
+}
+export const fetchNewAccessJWT = ()=>{
+    return new Promise(async(resolve,reject)=>{
+        try {
+            const {refreshJWT}=JSON.parse( localStorage.getItem('crmSite'))
+            if(!refreshJWT){
+                reject("Token not found")
+            }
+            const result = await axios.get(refreshJWTUrl,{headers:{
+                Authorization:refreshJWT,
+            }})
+            //const {_id,name,email}=result.data.user
+            //console.log(result)
+            if(result.status==="200"){
+                //console.log(result)
+                
+                sessionStorage.setItem('accessJWT',result.data.message)
+                //localStorage.setItem('crmSite',JSON.stringify({refreshJWT:result.data.RJWT}))
+            }
+
+            resolve(true)
+            
+
+        } catch (error) {
+            if(error.message==="Request failed with status code 404"){
+                sessionStorage.removeItem("accessJWT")
+            }
+            //console.log(error.message)
+            reject(false)
+        }
+    })
 }

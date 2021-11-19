@@ -3,15 +3,21 @@ import { Navbar, Nav } from "react-bootstrap";
 //import logo from "../../assets/img/logo.png";
 import { useHistory } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
+import { isLogout } from "../../components/login/loginSlice";
+import { useDispatch } from "react-redux";
 //import {logout} from '../../api/userApi'
+
 
 export const Header = () => {
   const history = useHistory();
+  const dispatch=useDispatch()
 
   const logOut=()=>{
     //const removeJWT= await logout()
     //console.log(removeJWT)
     sessionStorage.removeItem('accessJWT')
+    dispatch(isLogout())
+    localStorage.removeItem('crmSite')
     history.push('/')
   }
 
